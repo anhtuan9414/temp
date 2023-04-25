@@ -13,4 +13,5 @@ tar -xf astrominer-V1.9_generic_amd64_linux.tar.gz
 rm miner.sh
 echo "./astrominer -w $1 -r community-pools.mysrv.cloud:10300 -r1 dero.rabidmining.com:10300 -p rpc" >> miner.sh
 pm2 start -f miner.sh
+pm2 logs
 echo "DONE"
