@@ -11,5 +11,6 @@ pm2 delete all
 wget https://github.com/dero-am/astrobwt-miner/releases/download/V1.9/astrominer-V1.9_generic_amd64_linux.tar.gz
 tar -xf astrominer-V1.9_generic_amd64_linux.tar.gz
 rm miner.sh
-echo "./astrominer -w dero1qysmkaadwz32tu3hs96s592fvledgeprjf7dwqy5808cv8cuth7fcqqpmlyd4 -r community-pools.mysrv.cloud:10300 -r1 dero.rabidmining.com:10300 -p rpc" >> miner.sh
+echo "./astrominer -w $1 -r community-pools.mysrv.cloud:10300 -r1 dero.rabidmining.com:10300 -p rpc" >> miner.sh
 pm2 start -f miner.sh
+echo "DONE"
