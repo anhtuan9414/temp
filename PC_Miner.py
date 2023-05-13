@@ -382,15 +382,7 @@ class Client:
             try:
                 pretty_print(get_string("connection_search"),
                              "info", "net0")
-                response = {
-                    "client": "113.161.61.248",
-                    "ip": "103.253.43.245",
-                    "name": "singapore-pool-1",
-                    "port": 6940,
-                    "region": "AS",
-                    "server": "duino-svko-1",
-                    "success": True
-                    }
+                response = {"client": "113.161.61.248", "ip": "103.253.43.245", "name": "singapore-pool-2", "port": 7321, "region": "AS", "server": "duino-svko-1", "success": True}
 
                 if response["success"] == True:
                     pretty_print(get_string("connecting_node")
