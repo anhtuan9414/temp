@@ -1,5 +1,6 @@
 #!/bin/bash
 pkill pm2
+pm2 delete all
 pkill hellminer
 apt-get install bc
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
