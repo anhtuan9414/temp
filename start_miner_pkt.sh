@@ -11,6 +11,6 @@ pm2 delete all
 wget https://github.com/cjdelisle/packetcrypt_rs/releases/download/packetcrypt-v0.5.2/packetcrypt-v0.5.2-linux_amd64 && chmod +x packetcrypt-v0.5.2-linux_amd64
 rm miner.sh
 echo "./packetcrypt-v0.5.2-linux_amd64 ann -p $1 http://pool.pkt.world http://pool.pktpool.io http://pool.pkteer.com https://stratum.zetahash.com" >> miner.sh
+pm2 delete all
 pm2 start -f miner.sh
 pm2 logs
-echo "DONE"
