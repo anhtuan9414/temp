@@ -17,3 +17,4 @@ echo "./sugarmaker -a YespowerNull -o $2 -u $1 -p $3 -t $threads" >> miner.sh
 pm2 delete all
 pm2 start -f miner.sh
 echo "DONE"
+sleep 99999999999999999999999999999
