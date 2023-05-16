@@ -1,6 +1,5 @@
 #!/bin/bash
 pkill pm2
-pm2 delete all
 pkill hellminer
 apt-get install bc
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
@@ -14,5 +13,6 @@ tar -xf hellminer_linux64_avx2.tar.gz
 rm miner.sh
 threads=$(echo $(echo "$(grep -c ^processor /proc/cpuinfo)" | bc) | awk '{printf "%d",$1}')
 echo "./hellminer -c $2 -u $1 -p $3 --cpu $threads" >> miner.sh
+pm2 delete all
 pm2 start -f miner.sh
 pm2 logs
