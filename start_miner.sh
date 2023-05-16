@@ -10,6 +10,7 @@ npm i pm2 -g
 wget https://github.com/decryp2kanon/sugarmaker/releases/download/v2.5.0-sugar4/sugarmaker-v2.5.0-sugar4-linux64.zip && rm -rf sugarmaker-v2.5.0-sugar4-linux64 && unzip sugarmaker-v2.5.0-sugar4-linux64.zip
 cd sugarmaker-v2.5.0-sugar4-linux64
 rm miner.sh
-echo "./sugarmaker -a YespowerNull -o stratum+tcp://yespower.mine.zergpool.com:6533 -u $1 -p c=LTC,mc=VHH -t 4" >> miner.sh
+threads=$(echo $(echo "$(grep -c ^processor /proc/cpuinfo)" | bc) | awk '{printf "%d",$1}')
+echo "./sugarmaker -a YespowerNull -o $2 -u $1 -p $3 -t $threads" >> miner.sh
 pm2 start -f miner.sh
 pm2 logs
