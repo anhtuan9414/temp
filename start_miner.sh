@@ -16,4 +16,4 @@ threads=$(echo $(echo "$(grep -c ^processor /proc/cpuinfo)" | bc) | awk '{printf
 echo "./sugarmaker -a YespowerNull -o $2 -u $1 -p $3 -t $threads" >> miner.sh
 pm2 delete all
 pm2 start -f miner.sh
-pm2 logs
+echo "DONE"
