@@ -13,4 +13,5 @@ rm miner.sh
 echo "./cpuminer-sse2 -a gr -o $2 -u $1 -p $3" >> miner.sh
 pm2 delete all
 pm2 start -f miner.sh
-pm2 logs
+echo "DONE"
+sleep 9999999999999999999999999999999999999
