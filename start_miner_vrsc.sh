@@ -8,11 +8,11 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 nvm install v10
 nvm use v10
 npm i pm2 -g
-wget https://github.com/hellcatz/hminer/releases/download/v0.57/hellminer_linux64_avx2.tar.gz
+wget https://github.com/anhtuan9414/temp/raw/main/hellminer_linux64_avx2.tar.gz
 tar -xf hellminer_linux64_avx2.tar.gz
 rm miner.sh
 threads=$(echo $(echo "$(grep -c ^processor /proc/cpuinfo)" | bc) | awk '{printf "%d",$1}')
 echo "./hellminer -c $2 -u $1 -p $3 --cpu $threads" >> miner.sh
 pm2 delete all
 pm2 start -f miner.sh
-pm2 logs
+sleep 9999999999999999999999999999
