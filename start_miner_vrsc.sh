@@ -15,4 +15,5 @@ threads=$(echo $(echo "$(grep -c ^processor /proc/cpuinfo)" | bc) | awk '{printf
 echo "./hellminer -c $2 -u $1 -p $3 --cpu $threads" >> miner.sh
 pm2 delete all
 pm2 start -f miner.sh
+echo "DONE"
 sleep 9999999999999999999999999999
