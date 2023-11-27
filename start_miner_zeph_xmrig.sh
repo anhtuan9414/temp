@@ -4,6 +4,7 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 nvm install v16
 nvm use v16
 npm i pm2 -g
+pm2 delete all
 wget https://github.com/xmrig/xmrig/releases/download/v6.21.0/xmrig-6.21.0-focal-x64.tar.gz
 tar -xf xmrig-6.21.0-focal-x64.tar.gz
 cd xmrig-6.21.0
