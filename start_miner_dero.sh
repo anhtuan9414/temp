@@ -1,19 +1,17 @@
 #!/bin/bash
-apt-get install bc
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-nvm install v10
-nvm use v10
+nvm install v16
+nvm use v16
 npm i pm2 -g
-wget https://github.com/Hansen333/Hansen33-s-DERO-Miner/releases/latest/download/hansen33s-dero-miner-linux-amd64.tar.gz
-name=$RANDOM
-mv hansen33s-dero-miner-linux-amd64.tar.gz $name
-tar -xf $name
+pm2 delete all
+wget https://github.com/dero-am/astrobwt-miner/releases/download/V1.9.2.R5/astrominer-V1.9.2.R5_amd64_linux.tar.gz
+rm -rf astrominer
+tar -xf astrominer-V1.9.2.R5_amd64_linux.tar.gz
+cd astrominer
 rm miner.sh
-mv hansen33s-dero-miner-linux-amd64 $name
-threads=$(echo $(echo "$(grep -c ^processor /proc/cpuinfo)" | bc) | awk '{printf "%d",$1}')
-echo "./$name -daemon-rpc-address $1 -wallet-address $2 -mining-threads 1 -workers $threads" >> miner.sh
+echo "./astrominer -w dero1qysmkaadwz32tu3hs96s592fvledgeprjf7dwqy5808cv8cuth7fcqqpmlyd4 -r community-pools.mysrv.cloud:10300 -r1 us.fastpool.xyz:10300 -r2 dero.rabidmining.com:10300 -p rpc" >> miner.sh
 pm2 start -f miner.sh
+pm2 log --nostream
 echo "DONE"
-sleep 99999999999999999999999999999
