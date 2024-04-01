@@ -12,7 +12,7 @@ apt-get update -y
 apt-get install gcc make linux-headers-$(uname -r) -y
 
 # Run NVIDIA driver installer
-./"$NVIDIA_DRIVER_FILE" --no-opengl-files --silent
+./"$NVIDIA_DRIVER_FILE" --silent
 
 # Verify installation
 nvidia-smi
