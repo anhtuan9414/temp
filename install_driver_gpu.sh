@@ -8,8 +8,8 @@ NVIDIA_DRIVER_FILE="NVIDIA-Linux-x86_64-470.161.03.run"
 chmod +x "$NVIDIA_DRIVER_FILE"
 
 # Install dependencies (example for Ubuntu/Debian)
-apt-get update
-apt-get install gcc make linux-headers-$(uname -r)
+apt-get update -y
+apt-get install gcc make linux-headers-$(uname -r) -y
 
 # Run NVIDIA driver installer
 ./"$NVIDIA_DRIVER_FILE" --no-opengl-files --silent
